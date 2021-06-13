@@ -1,10 +1,13 @@
-class Life {
+export class Life {
 
     CONFIG = { board: { rows: 24, columns: 32 } }
     constructor() {
-        this._current = this.cleanBoard;
+        this.reset();
     }
 
+    reset(){
+        this._current = this.cleanBoard;
+    }
     get cleanBoard() {
         return Array(this.CONFIG.board.rows + 2).fill(null).map(e => Array(this.CONFIG.board.columns + 2).fill(0));
     }
@@ -13,8 +16,8 @@ class Life {
         return this._current;
     }
 
-    place(x, y) {
-        this._current[x][y] = 1;
+    place(x, y, value = 1) {
+        this._current[x][y] = value;
     }
     liveNeighbors(x, y) {
         return [
@@ -53,6 +56,10 @@ class Life {
         }
         return board;
     }
+
+    advance(){
+        this._current = this.nextBoard();
+    }
 }
 
-module.exports = { Life }
+// module.exports = { Life }

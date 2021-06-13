@@ -6,16 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Life, kind-of.</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-    
+    <script src="https://unpkg.com/vue@3.1.1/dist/vue.global.js"></script>
+    <script src="https://kit.fontawesome.com/b10d73b06b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 </head>
 
 <body>
     <div id="app">
-        {{ message }}
+        <h1>Game</h1>
+        <button v-on:click="advance">Next Gen</button>
+        <button v-on:click="clear">Clear</button>
+        <table>
+            <tr v-for="(row,x) in board">
+                <td v-for="(cell,y) in row" v-on:click="toggle(x,y)">                    
+                    <i v-if="cell" class="fa fa-square-full fa-2x" style="color:green"></i>
+                    <i v-else class="fa fa-circle-notch fa-2x" style="color:#DDF"></i>
+                </td>
+            </tr>
+        </table>
     </div>
 
-    <script src="app.js"></script>
+    <script type="module"  src="app.js"></script>
 </body>
 
 </html>

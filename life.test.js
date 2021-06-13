@@ -1,4 +1,4 @@
-const { Life } = require('./life')
+import  Life from './life';
 
 function freshTarget() { return new Life(); }
 
