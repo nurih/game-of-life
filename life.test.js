@@ -1,4 +1,5 @@
-import  Life from './life';
+import { Life } from './life';
+
 
 function freshTarget() { return new Life(); }
 
@@ -38,16 +39,16 @@ test.each([
     [4, 2, 1]]
 )('nextState at [%i,%i] should be %i', (x, y, expected) => {
     const target = solidCorner();
-    
+
     expect(target.nextState(x, y)).toBe(expected)
 });
 
 test('bar-minus cycle', () => {
     const target = freshTarget();
     // create "column" of 3 pixels
-    target.place(1,2);
-    target.place(2,2);
-    target.place(3,2);
+    target.place(1, 2);
+    target.place(2, 2);
+    target.place(3, 2);
 
 
     const actual = target.nextBoard();
@@ -86,9 +87,9 @@ test.each([
 
 ]
 )('shouldLive with alive now = %p, live neighbour count %i] should be %i', (aliveNow, liveNeighborCount, expected) => {
-    
-    
-    expect(Life.shouldLive(aliveNow,liveNeighborCount)).toBe(expected);
+
+
+    expect(Life.shouldLive(aliveNow, liveNeighborCount)).toBe(expected);
 });
 
 function solidCorner() {

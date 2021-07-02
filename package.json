@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "life.js",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
@@ -13,5 +14,8 @@
   },
   "dependencies": {
     "vue": "^2.6.14"
+  },
+  "jset": {
+    "transform": {}
   }
 }
