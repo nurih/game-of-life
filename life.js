@@ -7,6 +7,7 @@ export class Life {
 
     reset(){
         this._current = this.cleanBoard;
+        this.hasChanged = false;
     }
     get cleanBoard() {
         return Array(this.CONFIG.board.rows + 2).fill(null).map(e => Array(this.CONFIG.board.columns + 2).fill(0));
@@ -49,9 +50,14 @@ export class Life {
 
     nextBoard() {
         const board = this.cleanBoard
+        this.liveCellCount = 0;
         for (var x = 1; x <= this.CONFIG.board.rows; x++) {
             for (var y = 1; y <= this.CONFIG.board.columns; y++) {
-                board[x][y] = this.nextState(x, y);
+                const curerntState = board[x][y];
+                const futureState = this.nextState(x, y);
+                this.hasChanged = this.hasChanged || futureState != curerntState;
+                this.liveCellCount += futureState;
+                board[x][y] = futureState;
             }
         }
         return board;

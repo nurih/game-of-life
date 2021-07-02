@@ -14,8 +14,17 @@
 <body>
     <div id="app">
         <h1>Game</h1>
-        <button v-on:click="advance">Next Gen</button>
-        <button v-on:click="clear">Clear</button>
+        <button v-on:click="play">Play</button>
+        <button v-on:click="stop">Stop</button>
+        <button v-on:click="advance">Advance 1 Generation</button>
+        <button v-on:click="clear">Clear</button><br>
+        Frames per second: 
+        <input type="radio" id="yes" value="1" v-model="framesPerSecond">1
+        <input type="radio" id="yes" value="2" v-model="framesPerSecond">2
+        <input type="radio" id="yes" value="4" v-model="framesPerSecond">4
+        <input type="radio" id="yes" value="8" v-model="framesPerSecond">8
+        
+        <h2>{{liveCellCount}} cells alive</h2>
         <table>
             <tr v-for="(row,x) in board">
                 <td v-for="(cell,y) in row" v-on:click="toggle(x,y)">                    
