@@ -12,6 +12,8 @@ The UI relies on 3 files:
 1. app.js
 1. life.js
 
-To run the demo you need to run a static web server so that your browser allows running js.
+To view the demo locally you need to run a static web server so that your browser allows running js.
 
 If you are using VS Code, the [Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) can help you do just that. 
+
+Or just to see in the browser, [go here](https://nurih.github.io/game-of-life/).
